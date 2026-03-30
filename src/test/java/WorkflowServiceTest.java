@@ -1,5 +1,6 @@
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
 public class WorkflowServiceTest {
 
@@ -28,5 +29,10 @@ public class WorkflowServiceTest {
     void testSubmitValid() {
         assertEquals(WorkflowState.SUBMITTED,
                 service.submit(WorkflowState.DRAFT));
+    }
+    @Test
+    void testResubmitValid() {
+        assertEquals(WorkflowState.SUBMITTED,
+            service.resubmit(WorkflowState.REJECTED));
     }
 }

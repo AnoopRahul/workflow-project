@@ -27,4 +27,10 @@ public class WorkflowService {
         }
         throw new RuntimeException("Invalid transition");
     }
+    public WorkflowState resubmit(WorkflowState state) {
+    if (state == WorkflowState.REJECTED) {
+        return WorkflowState.SUBMITTED;
+    }
+    throw new RuntimeException("Invalid transition");
+}
 }
