@@ -30,9 +30,17 @@ public class WorkflowServiceTest {
         assertEquals(WorkflowState.SUBMITTED,
                 service.submit(WorkflowState.DRAFT));
     }
+
     @Test
     void testResubmitValid() {
         assertEquals(WorkflowState.SUBMITTED,
-            service.resubmit(WorkflowState.REJECTED));
+                service.resubmit(WorkflowState.REJECTED));
+    }
+
+    @Test
+    void testResubmitInvalid() {
+        assertThrows(RuntimeException.class, () -> {
+            service.resubmit(WorkflowState.APPROVED);
+        });
     }
 }
