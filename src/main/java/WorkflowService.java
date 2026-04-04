@@ -6,7 +6,7 @@ public class WorkflowService {
         }
         throw new RuntimeException("Invalid transition");
     }
-
+// change for jenkin test
     public WorkflowState review(WorkflowState state) {
         if (state == WorkflowState.SUBMITTED) {
             return WorkflowState.UNDER_REVIEW;
